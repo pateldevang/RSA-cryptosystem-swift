@@ -12,7 +12,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        //MARK: - Testing
+        let rsa : RSAWrapper? = RSAWrapper()
+        let success : Bool = (rsa?.generateKeyPair(keySize: 2048, privateTag: "in.devangpatel", publicTag: "in.devangpatel"))!
+        if (!success) {
+            print("Failed")
+            return
+        }
+        let test : String = "You can't see me!"
+        let encryption = rsa?.encryptBase64(text: test)
+        print(encryption)
+        let decription = rsa?.decpryptBase64(encrpted: encryption!)
+        print(decription)
+        
     }
 
 
