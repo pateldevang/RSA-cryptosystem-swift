@@ -45,7 +45,7 @@ class RSAWrapper {
         ];
         
         let status : OSStatus = SecKeyGeneratePair(parameters as CFDictionary, &(self.publicKey), &(self.privateKey))
-        
+//        print(privateKey)
         return (status == errSecSuccess && self.publicKey != nil && self.privateKey != nil)
     }
     
@@ -54,7 +54,7 @@ class RSAWrapper {
         let plainBuffer = [UInt8](text.utf8)
         var cipherBufferSize : Int = Int(SecKeyGetBlockSize((self.publicKey)!))
         var cipherBuffer = [UInt8](repeating:0, count:Int(cipherBufferSize))
-        
+         
         // Encrypto  should less than key length
         let status = SecKeyEncrypt((self.publicKey)!, SecPadding.PKCS1, plainBuffer, plainBuffer.count, &cipherBuffer, &cipherBufferSize)
         if (status != errSecSuccess) {
