@@ -12,4 +12,6 @@ Boiler plate for RSA encryption to avoid Man-in-the-middle attack during network
 </tr>
 </table>
 
-Hello get encrypted into 2048 bits RSA and the QR code is generated. 
+1. Hello get encrypted into 2048 bits RSA and the QR code is generated. 
+2. If anyone scan the QR code then they get encrpted string.
+3. Use store private key in server to decrypt the data that gets scanned from the QR code.
